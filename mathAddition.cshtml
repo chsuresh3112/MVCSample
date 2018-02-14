@@ -1,0 +1,47 @@
+﻿@Html.ValidationSummary(true)
+
+@model MVCWebAPIAdd.Models.modelAdd
+
+@{
+    ViewBag.Title = "mathAddition";
+}
+
+<h2>Add Two Integers</h2>
+<br />
+@using (Html.BeginForm("mathAddition", "Home", FormMethod.Post))
+{
+    @Html.ValidationSummary(true)
+
+    <table border="1">
+        <tr>
+            <td>
+                @Html.Label("lblFirstNum", "Enter First Number")
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.number1)
+                @Html.ValidationMessageFor(m=>m.number1)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.Label("lblSecondNum", "Enter FirsSecondt Number")
+            </td>
+            <td>
+                @Html.TextBoxFor(m => m.number2)
+                @Html.ValidationMessageFor(m => m.number2)
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" value="Add" id="btnSubmit" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                @Html.TextBox("Result",(string)ViewBag.Result)
+            </td>
+        </tr>
+    </table>
+}
+
+
